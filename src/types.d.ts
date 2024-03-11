@@ -3,3 +3,8 @@ export type Joke = {
     category?: string,
     date?: string
 }
+
+export type Route = {
+    href: string;
+    name: string;
+};
