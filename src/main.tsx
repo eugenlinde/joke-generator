@@ -5,9 +5,10 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import NewJokes, { loader } from "./layouts/NewJokes";
+import NewJokes from "./layouts/NewJokes";
 import SavedJokes from "./layouts/SavedJokes";
 import ErrorPage from "./ErrorPage";
+import { loader } from "./loaders";
 
 const router = createBrowserRouter([
     {

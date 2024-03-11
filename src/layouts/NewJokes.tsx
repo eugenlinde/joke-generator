@@ -7,12 +7,6 @@ import List from "../components/List";
 import Navbar from "../components/Navbar";
 import {Joke} from "../types";
 
-export async function loader(): Promise<{ categories: AxiosResponse<string[]> }> {
-    const categories = await axios.get("https://api.chucknorris.io/jokes/categories");
-
-    return { categories };
-}
-
 const NewJokes = () => {
     const [category, setCategory] = useState<string>("all");
     const [prevCategory, setPrevCategory] = useState<string>("all");
