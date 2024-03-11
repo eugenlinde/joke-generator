@@ -30,8 +30,13 @@ const SavedJokes = () => {
 
     useEffect(() => {
         const data = localStorage.getItem('savedJokes') ?? "";
-        const savedJokes = JSON.parse(data) || [];
-        setJokes(savedJokes);
+        try {
+            const savedJokes = JSON.parse(data) || [];
+            setJokes(savedJokes);
+        } catch (error) {
+            console.error('error parsing saved jokes:', error);
+            setJokes([]);
+        }
     }, []);
 
 

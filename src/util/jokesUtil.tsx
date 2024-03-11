@@ -1,4 +1,4 @@
-import { Joke } from "../routes/NewJokes";
+import { Joke } from "../types";
 
 export const addJokeInStorage = (joke: Joke) => {
     const savedJokesJSON = localStorage.getItem('savedJokes');

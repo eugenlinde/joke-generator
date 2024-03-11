@@ -5,8 +5,8 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import NewJokes, { loader } from "./routes/NewJokes";
-import SavedJokes from "./routes/SavedJokes";
+import NewJokes, { loader } from "./layouts/NewJokes";
+import SavedJokes from "./layouts/SavedJokes";
 import ErrorPage from "./ErrorPage";
 
 const router = createBrowserRouter([
