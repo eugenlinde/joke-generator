@@ -27,7 +27,7 @@ const List = ({ data, buttonText, buttonCallback }: ListProps): JSX.Element => {
           >
             <div className="flex min-w-0 gap-x-4">
               <div className="min-w-0 max-w-5xl flex-auto">
-                <p className="text-ellipsis text-s leading-5 text-gray-500">
+                <p className="text-ellipsis text-s leading-5 text-gray-500 overflow-hidden">
                   {el.value}
                 </p>
               </div>
