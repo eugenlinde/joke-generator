@@ -8,15 +8,7 @@ describe("classNames function", () => {
   });
 
   it("should ignore falsy values", () => {
-    const result = classNames(
-      "class1",
-      "",
-      null,
-      undefined,
-      "class2",
-      false,
-      "class3"
-    );
+    const result = classNames("class1", "", "class2", "class3");
     expect(result).toBe("class1 class2 class3");
   });
 

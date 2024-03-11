@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { useRouteError } from "react-router-dom";
-import { describe, it, vi } from "vitest";
+import { describe, it, vi, expect, Mock } from "vitest";
 import ErrorPage from "../ErrorPage";
 
 vi.mock("react-router-dom", (importOriginal) => {
@@ -19,7 +19,7 @@ describe("ErrorPage Component", () => {
     };
 
     // Mock useRouteError to return the error
-    useRouteError.mockReturnValue(error);
+    (useRouteError as Mock).mockReturnValue(error);
 
     const { getByText } = render(<ErrorPage />);
 

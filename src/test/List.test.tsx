@@ -36,7 +36,7 @@ describe("List component", () => {
     );
 
     expect(screen.getByText(mockJokeData[0].value)).toBeInTheDocument();
-    expect(screen.getByText(mockJokeData[1].date)).toBeInTheDocument();
+    expect(screen.getByText(mockJokeData[1].value)).toBeInTheDocument();
   });
 
   it("should call the buttonCallback function when button is clicked", () => {
@@ -48,7 +48,7 @@ describe("List component", () => {
       />
     );
 
-    const button = screen.getAllByRole("button", { text: /Show Details/i })[0];
+    const button = screen.getAllByRole("button")[0];
     button.click();
 
     expect(mockButtonCallback).toHaveBeenCalledTimes(1);

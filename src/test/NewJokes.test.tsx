@@ -1,14 +1,14 @@
 import { render, waitFor } from "@testing-library/react";
 import axios from "axios";
 import { BrowserRouter as Router } from "react-router-dom";
-import { beforeEach, describe, it, vi } from "vitest";
+import { Mock, beforeEach, describe, expect, it, vi } from "vitest";
 import NewJokes from "../layouts/NewJokes";
 
 vi.mock("axios");
 vi.mock("react-router-dom", async (importOriginal) => {
   const actual = await importOriginal();
   return {
-    ...actual,
+    ...(actual as object),
     useLoaderData: vi.fn(() => ({
       categories: { data: ["category1", "category2"] },
     })),
@@ -21,7 +21,7 @@ describe("NewJokes", () => {
   });
 
   it("renders Navbar, Select, and List", async () => {
-    await axios.get
+    await (axios.get as Mock)
       .mockResolvedValueOnce({ data: { value: "testJoke1" } })
       .mockResolvedValueOnce({ data: { value: "testJoke2" } })
       .mockResolvedValueOnce({ data: { value: "testJoke3" } });

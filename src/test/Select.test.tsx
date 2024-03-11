@@ -1,5 +1,5 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
-import { describe, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import Select from "../components/Select";
 
 describe("select component", () => {
@@ -11,7 +11,7 @@ describe("select component", () => {
   });
 
   it("displays correct options when clicked", async () => {
-    const { getByTestId, getByRole } = render(
+    const { getByRole } = render(
       <Select data={data} value={data[0]} callback={mockCallback} />
     );
     const button = getByRole("button");
