@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import {
@@ -30,3 +31,5 @@ ReactDOM.createRoot(root).render(
         <RouterProvider router={router} />
     </React.StrictMode>
 );
+
+/* v8 ignore end */

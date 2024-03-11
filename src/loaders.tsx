@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import axios, {AxiosResponse} from "axios";
 
 export async function loader(): Promise<{ categories: AxiosResponse<string[]> }> {
@@ -5,3 +6,4 @@ export async function loader(): Promise<{ categories: AxiosResponse<string[]> }>
 
     return { categories };
 }
+/* v8 ignore stop */

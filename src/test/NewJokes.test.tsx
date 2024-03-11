@@ -4,7 +4,7 @@ import axios from 'axios';
 import NewJokes from '../layouts/NewJokes';
 import {BrowserRouter as Router} from "react-router-dom";
 
-vi.mock('axios');
+vi.mock("axios");
 vi.mock("react-router-dom", async (importOriginal) => {
     const actual = await importOriginal()
     return {
@@ -17,7 +17,6 @@ describe('NewJokes', () => {
     beforeEach(() => {
         vi.clearAllMocks();
     });
-
 
     it('renders Navbar, Select, and List', async () => {
         await axios.get.mockResolvedValueOnce({ data: { value: "testJoke1" } })
