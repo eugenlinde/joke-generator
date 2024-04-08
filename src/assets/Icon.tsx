@@ -36,6 +36,6 @@ const Icon = () => (
             </g>
         </g>
     </svg>
-)
+);
 
 export default Icon;

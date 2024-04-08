@@ -1,30 +1,30 @@
-import { act, render, screen, waitFor } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
-import Select from "../components/Select";
+import { act, render, screen, waitFor } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+import Select from '../components/Select';
 
-describe("select component", () => {
-  const data = ["a", "b,", "c"];
-  const mockCallback = vi.fn();
+describe('select component', () => {
+    const data = ['a', 'b,', 'c'];
+    const mockCallback = vi.fn();
 
-  it("renders the component", () => {
-    render(<Select data={data} value={data[0]} callback={vi.fn()} />);
-  });
-
-  it("displays correct options when clicked", async () => {
-    const { getByRole } = render(
-      <Select data={data} value={data[0]} callback={mockCallback} />
-    );
-    const button = getByRole("button");
-
-    act(() => {
-      button.click();
+    it('renders the component', () => {
+        render(<Select data={data} value={data[0]} callback={vi.fn()} />);
     });
 
-    await waitFor(() =>
-      expect(screen.getByRole("listbox")).toBeInTheDocument()
-    );
+    it('displays correct options when clicked', async () => {
+        const { getByRole } = render(
+            <Select data={data} value={data[0]} callback={mockCallback} />,
+        );
+        const button = getByRole('button');
 
-    const options = screen.getAllByRole("option");
-    expect(options.length).toBe(data.length);
-  });
+        act(() => {
+            button.click();
+        });
+
+        await waitFor(() =>
+            expect(screen.getByRole('listbox')).toBeInTheDocument(),
+        );
+
+        const options = screen.getAllByRole('option');
+        expect(options.length).toBe(data.length);
+    });
 });

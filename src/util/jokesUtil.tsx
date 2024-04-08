@@ -1,10 +1,10 @@
-import { Joke } from "../types";
+import { Joke } from '../types';
 
 export const addJokeInStorage = (joke: Joke) => {
     const savedJokesJSON = localStorage.getItem('savedJokes');
     const savedJokes: Joke[] = savedJokesJSON ? JSON.parse(savedJokesJSON) : [];
-    const valueExists = savedJokes.some(savedJoke =>
-        savedJoke.value === joke.value
+    const valueExists = savedJokes.some(
+        (savedJoke) => savedJoke.value === joke.value,
     );
 
     if (!valueExists) {
@@ -14,8 +14,10 @@ export const addJokeInStorage = (joke: Joke) => {
 };
 
 export const removeJokeInStorage = (jokeToRemove: Joke) => {
-    const data = localStorage.getItem('savedJokes') ?? "";
+    const data = localStorage.getItem('savedJokes') ?? '';
     const savedJokes = JSON.parse(data) || [];
-    const updatedJokes = savedJokes.filter((joke: Joke) => joke.value !== jokeToRemove.value);
+    const updatedJokes = savedJokes.filter(
+        (joke: Joke) => joke.value !== jokeToRemove.value,
+    );
     localStorage.setItem('savedJokes', JSON.stringify(updatedJokes));
 };
